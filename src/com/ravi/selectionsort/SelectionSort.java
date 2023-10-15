@@ -1,4 +1,4 @@
-package com.ravi;
+package com.ravi.selectionsort;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ public class SelectionSort {
         selectionSort(arr);
     }
     //Selecting the largest element and push to end
-    //For each step ignore n-i position because last element is alredy at end so waste to compare the last
+    //For each step ignore n-i position because last element is already at end so waste to compare the last
     //element
     static void selectionSort(int [] arr){
         for (int i = 0; i < arr.length; i++) {
@@ -17,6 +17,8 @@ public class SelectionSort {
             int lastIndex=arr.length-i-1;
             int maxIndex=getMaxIndex(arr,0,lastIndex);
 
+            //swapping maxIndex with last index
+            swapArray(arr,maxIndex,lastIndex);
         }
 
         System.out.println(Arrays.toString(arr));
@@ -33,6 +35,8 @@ public class SelectionSort {
     }
 
     private static void swapArray(int [] arr, int first,int second){
-
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
     }
 }
